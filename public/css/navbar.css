@@ -1,0 +1,8 @@
+.navbar-nav {
+    text-align: right;
+}
+.navbar .navbar-nav .nav-link {
+    padding-right: 1em;
+    color: #fff;
+    font-size: 1.1em;
+}
