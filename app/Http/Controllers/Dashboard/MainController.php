@@ -28,7 +28,7 @@ class MainController extends Controller
     {
         $breadcrumb = match (auth()->user()->role) {
             'admin' => 'DASHBOARD ADMIN',
-            'suoervisor' => 'DASHBOARD SUPERVISOR',
+            'supervisor' => 'DASHBOARD SUPERVISOR',
             'user' => 'DASHBOARD USER',
             'users' => 'DASHBOARD USER',
             default => 'DASHBOARD'
@@ -178,7 +178,6 @@ class MainController extends Controller
                         'insident_time' => $request->insident_time,
                         'chronology' => $request->chronology,
                         'additional_information' => $request->additional_info,
-                        // 'riskman_number' => $request->riskman_number,
                         'verified_by' => $status == 'VERIFIED' ? auth()->user()->id : NULL,
                     ]);
 
@@ -194,7 +193,6 @@ class MainController extends Controller
                     $case->update([
                         'status' => $status,
                         'additional_information' => $request->additional_info,
-                        // 'riskman_number' => $request->riskman_number,
                         'verified_by' => $status == 'VERIFIED' ? auth()->user()->id : NULL,
                     ]);
 
@@ -264,7 +262,6 @@ class MainController extends Controller
                     ]);
                 }
 
-                // $imp_name = Str::replace('.', '', Str::snake($responseData->implementation->name));
                 DB::commit();
                 return response()->json([
                     'status' => 200,
@@ -373,10 +370,6 @@ class MainController extends Controller
     {
 
         $cases = CaseInsident::where('id', $id)->get();
-        // $imagePath = public_path('picture/ramsay.png');
-        // $type = pathinfo($imagePath, PATHINFO_EXTENSION);
-        // $data = file_get_contents($imagePath);
-        // $pic = 'data:image/' . $type . ';base64,' . base64_encode($data);
         $pdf = PDF::loadview('pages.dashboard.pdf.case-detail-pdf', ['cases' => $cases]);
         $pdf->set_paper('A4', 'potrait');
 

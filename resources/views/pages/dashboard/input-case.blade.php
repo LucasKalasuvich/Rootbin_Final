@@ -12,6 +12,8 @@
         $listUnit = ['IT', 'QMR', 'SKJ', 'ADVC'];
         $listStaff = ['Agung', 'Bayu', 'Candra', 'Dodi'];
     @endphp
+    <a href="{{ url('/dashboard') }}" class="btn btn-outline-dark mb-3">Back</a>
+
     <div class="row mt-1 pb-2">
         <div class="border border-dark px-4 pt-4">
             @if (Session::has('exception'))

@@ -1,0 +1,25 @@
+.container_table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 1rem;
+}
+
+.card_table_detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1300px;
+    height: 495px;
+    background-color: #fff;
+    border-radius: 1rem;
+}

@@ -4,6 +4,8 @@
 
 @push('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/card-table.css') }}">
+
     <style>
         .table tr,
         .table td,
@@ -47,9 +49,11 @@
 @section('content')
     <div class="row mt-1">
         <div class="col-md-12">
-            <div class="card mb-3" style="background-color: #000000!important;">
-                <div class="table-responsive" style="background-color: #557ae9!important;">
-                    <table id="table" class="table table-striped table-bordered" style="width:100%">
+            <a href="{{ url('/dashboard/review-case') }}" class="btn btn-outline-dark mb-3">Back</a>
+
+            <div class="container_table">
+                <div class="table-responsive card_table_detail">
+                    <table id="table" class="table table-striped" style="width:100%">
                         <thead>
                             <tr class="align-middle">
                                 <th scope="col" class="text-center" style="vertical-align: middle">No</th>

@@ -11,6 +11,8 @@
         $listUnit = ['IT', 'QMR', 'SKJ', 'ADVC'];
         $listStaff = ['Agung', 'Bayu', 'Candra', 'Dodi', 'Hendra'];
     @endphp
+    <a href="{{ url('/dashboard') }}" class="btn btn-outline-dark mb-3">Back</a>
+
     <div class="row mt-1 pb-2">
         <div class="border border-dark px-4 pt-4">
             @if (Session::has('exception'))
@@ -27,6 +29,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             @endif
+
             <form id="newCase" action="{{ route('dashboard.store-case') }}{{ $verification ? '/?act=verification' : '' }}"
                 method="POST">
                 @csrf
@@ -42,6 +45,7 @@
                         @endif
                     </div>
                 </div>
+
                 <div class="row mb-3">
                     <label for="medrec" class="col-sm-2 col-form-label">Nomor Medrec<span
                             class="text-danger">*</span></label>
@@ -54,11 +58,13 @@
                         @endif
                     </div>
                 </div>
+
                 <div class="row mb-3">
                     <label for="tgl_pelaporan" class="col-sm-2 col-form-label">Tanggal Pelaporan</label>
                     <div class="col-sm-10 col-md-2">
-                        <input type="date" class="form-control @error('report_date') is-invalid @enderror" id="tgl_pelaporan" 
-                            value="{{ $case->reporting_date }}" name="report_date" {{ $verification ? 'disabled' : '' }}>
+                        <input type="date" class="form-control @error('report_date') is-invalid @enderror"
+                            id="tgl_pelaporan" value="{{ $case->reporting_date }}" name="report_date"
+                            {{ $verification ? 'disabled' : '' }}>
                         {{-- <input type="hidden" class="form-control" id="tgl_pelaporan" name="report_date"
                             value="{{ $case->reporting_date }}"> --}}
                         <input type="hidden" class="form-control" id="id" name="id"
@@ -68,6 +74,7 @@
                         @endif
                     </div>
                 </div>
+
                 <div class="row mb-3">
                     <label for="tgl_insiden" class="col-sm-2 col-form-label">Tanggal Insiden<span
                             class="text-danger">*</span></label>
@@ -80,6 +87,7 @@
                         @endif
                     </div>
                 </div>
+
                 <div class="row mb-3">
                     <label for="jam_insiden" class="col-sm-2 col-form-label">Jam Insiden<span
                             class="text-danger">*</span></label>
@@ -92,6 +100,7 @@
                         @endif
                     </div>
                 </div>
+
                 <div class="row mb-3">
                     <label for="unit_terkait" class="col-sm-2 col-form-label">Unit Terkait<span
                             class="text-danger">*</span></label>
@@ -114,6 +123,7 @@
                         @endif
                     </div>
                 </div>
+
                 <div class="row mb-3">
                     <label for="staf_terkait" class="col-sm-2 col-form-label">Staf Terkait<span
                             class="text-danger">*</span></label>
@@ -136,6 +146,7 @@
                         @endif
                     </div>
                 </div>
+
                 <div class="row mb-3">
                     <label for="kronologi" class="col-sm-2 col-form-label">Kronologi<span
                             class="text-danger">*</span></label>
@@ -147,6 +158,7 @@
                         @endif
                     </div>
                 </div>
+
                 @if ($verification)
                     <div class="row mb-3">
                         <label for="status" class="col-sm-2 col-form-label">Status</label>
@@ -177,16 +189,9 @@
                             </div>
                         </div>
                     </div>
+
                     @if (auth()->user()->isSupervisor() ||
                             auth()->user()->isAdmin())
-                        {{-- <div class="row mb-3">
-                            <label for="riskman_number" class="col-sm-2 col-form-label">No. Riskman</label>
-                            <div class="col-sm-10 col-md-6">
-                                <textarea class="form-control" id="riskman_number" rows="3" placeholder="No. Riskman"
-                                    name="riskman_number"></textarea>
-                            </div>
-                        </div> --}}
-
                         <div class="row mb-3">
                             <label for="info_tambahan" class="col-sm-2 col-form-label">Informasi Tambahan</label>
                             <div class="col-sm-10 col-md-6">

@@ -29,8 +29,4 @@ class CaseInsidentImplementation extends Model
             get: fn (string $value) => Storage::url($value),
         );
     }
-
-    // public function getCreatedAtAttribute(){
-    //     return Carbon::parse($this->attributes['created_at'])->translatedFormat('l, d F Y');
-    // }
 }

@@ -3,8 +3,9 @@
 @section('heading', 'Dashboard')
 
 @push('css')
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" /> --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/card-table.css') }}">
+
     <style>
         .table tr,
         .table td,
@@ -27,14 +28,15 @@
 @section('content')
     <div class="row mt-1">
         <div class="col-md-12">
-            <div class="d-flex justify-content-end">
+            <a href="{{ url('/dashboard') }}" class="btn btn-outline-dark mb-3">Back</a>
 
-                {{-- <a href="{{ route('dashboard.review-case.download-pdf') }}" class="text-decoration-none">Download All
-                    (PDF)</a> --}}
-            </div>
-            <div class="card mb-3" style="background-color: #000000!important;">
-                <div class="table-responsive" style="background-color: #557ae9!important;">
+            {{-- <div class="d-flex justify-content-end">
 
+                <a href="{{ route('dashboard.review-case.download-pdf') }}" class="text-decoration-none">Download All
+                    (PDF)</a>
+            </div> --}}
+            <div class="container_table">
+                <div class="table-responsive card_table">
                     <table id="table" class="table table-striped" style="width:100%">
                         <thead>
                             <tr>
@@ -83,6 +85,7 @@
                     </table>
                 </div>
             </div>
+
         </div>
     </div>
 @endsection

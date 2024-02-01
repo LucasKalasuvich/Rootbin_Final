@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+
 html,
 body {
     height: 100%;
@@ -5,7 +7,6 @@ body {
 
 body.my-login-page {
     background-color: #102d84;
-    font-size: 14px;
 }
 
 .my-login-page .brand {
@@ -19,14 +20,32 @@ body.my-login-page {
     z-index: 1;
 }
 
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem;
+}
+
+.card-left {
+    width: 50%;
+}
+
+.card-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
 .my-login-page .brand img {
     width: 100%;
 }
 
 .my-login-page .card-wrapper {
-    /* margin-right: 300px;
-    margin-top: 100px; */
-    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .my-login-page .card {
@@ -35,34 +54,51 @@ body.my-login-page {
 }
 
 .my-login-page .card.fat {
-    background-color: #102d84;
     border-style: solid;
-    border-color: white;
-    border-radius: 60px;
-    padding: 10px;
+    border-radius: 1rem;
+    width: 100%;
 }
 
-.my-login-page .card .card-title {
-    text-align: center;
-    color: white;
-    margin-bottom: 30px;
+.card-body h2 {
+    color: #000;
+    width: 100%;
+    margin-bottom: 50px;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    padding: 20px;
 }
 
 .my-login-page .form-control {
-    border-width: 2.3px;
+    /* border-width: 2.3px; */
+    width: 75%;
 }
 
 .my-login-page .form-group label {
-    color: white;
-
+    color: #000;
     width: 100%;
+}
+
+.card-body .forgot_password a {
+    color: #000;
+    width: 75%;
+    display: flex;
+    justify-content: end;
+    text-decoration: underline;
+}
+
+.btn-submit {
+    display: flex;
+}
+
+.btn-submit button {
+    color: #fff;
+    background: #102d84;
 }
 
 .my-login-page .btn.btn-block {
     padding: 12px 1px;
     margin-top: 65px;
-
-    /* margin-left: 210px; */
 }
 
 .my-login-page .footer {
@@ -71,10 +107,34 @@ body.my-login-page {
     text-align: center;
 }
 
+.card-right img {
+    width: 525px;
+    height: 365px;
+}
+
+.card-top-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-top-header img {
+    width: 80px;
+    height: 80px;
+}
+
 @media screen and (max-width: 425px) {
     .my-login-page .card-wrapper {
         width: 90%;
         margin: 0 auto;
+    }
+
+    .my-login-page .form-control {
+        width: 100%;
+    }
+
+    .card-body .forgot_password a {
+        width: 100%;
+        justify-content: end;
     }
 }
 
@@ -85,5 +145,43 @@ body.my-login-page {
 
     .my-login-page .card.fat .card-body {
         padding: 15px;
+    }
+
+    .my-login-page .form-control {
+        width: 100%;
+    }
+
+    .card-body .forgot_password a {
+        width: 100%;
+        justify-content: end;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .my-login-page .card-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-left {
+        width: 100%;
+    }
+
+    .card-right {
+        display: none;
+    }
+
+    .my-login-page .form-control {
+        width: 100%;
+    }
+
+    .card-body .forgot_password a {
+        width: 100%;
+        justify-content: end;
     }
 }
